@@ -1,0 +1,37 @@
+nav{
+	background:#343a40;
+	opacity:0.8;
+}
+
+.carousel-item{
+	position:relative;
+}
+
+.carousel-item:after{
+	content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  background-color: #343a40;
+  opacity:0.3;
+}
+
+#about{
+	display:grid;
+	grid-template-columns: 250px 250px;
+	grid-gap:2rem;
+	justify-content: center;
+	overflow-x: hidden
+}
+
+#about img{
+	height:100%;
+	overflow-x: hidden
+}
+
+.animated{
+	animation-play-state: paused;
+}
