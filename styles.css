@@ -3,6 +3,14 @@ nav{
 	opacity:0.8;
 }
 
+#mission{
+	text-align: center;
+	padding:8rem 4rem;
+}
+.carousel-inner, .carousel-item{
+	max-height:500px;
+}
+
 .carousel-item{
 	position:relative;
 }
@@ -19,19 +27,97 @@ nav{
   opacity:0.3;
 }
 
+.carousel-caption{
+	bottom:50%;
+	transform:translateY(50%);
+	text-align: left
+}
+
 #about{
 	display:grid;
 	grid-template-columns: 250px 250px;
-	grid-gap:2rem;
+	grid-template-rows: 250px 250px 250px;
+	grid-gap:4rem;
 	justify-content: center;
-	overflow-x: hidden
+	overflow-x: hidden;
+	padding:8rem;
 }
 
 #about img{
+	object-fit:cover;
 	height:100%;
-	overflow-x: hidden
 }
 
 .animated{
+	 -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
 	animation-play-state: paused;
+}
+
+@-webkit-keyframes slideInLeft {
+  from {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    opacity:0;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    opacity:1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    opacity:0;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    opacity:1;
+  }
+}
+
+.slideInLeft {
+  -webkit-animation-name: slideInLeft;
+  animation-name: slideInLeft;
+}
+
+@-webkit-keyframes slideInRight {
+  from {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+    opacity:0;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    opacity:1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+    opacity:0;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    opacity:1;
+  }
+}
+
+.slideInRight {
+  -webkit-animation-name: slideInRight;
+  animation-name: slideInRight;
 }

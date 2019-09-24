@@ -1,15 +1,15 @@
 const animatedElements=document.querySelectorAll('.animated')
 
-window.addEventListener('scroll',checkPositions)
+const checkInterval=window.setInterval(checkPositions,500)
 
 function checkPositions(){
-	console.log('scrolling')
+	console.log('checking')
 	animatedElements.forEach((item,i)=>{
 		const position=item.getBoundingClientRect()
 		if(position.top+position.height/2<=window.innerHeight){
 			item.style['animation-play-state']="running";
 			if(i+1===animatedElements.length){
-				window.removeEventListener('scroll',checkPositions)
+				window.clearInterval(checkInterval)
 			}
 		}
 	})
