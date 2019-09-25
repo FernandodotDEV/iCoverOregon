@@ -1,33 +1,83 @@
+*{
+  font-size:16px;
+}
+
 p{
   margin:0;
   padding:0;
 }
 nav{
-	background:#343a40;
-	opacity:0.8;
+  height:8rem;
+  transition:height 0.5s;
+  color:white;
+  display:flex;
+  position:relative;
+}
+
+nav ul{
+  list-style: none;
+  display:flex;
+  position:absolute;
+  right:5%;
+  top:50%;
+  transform:translateY(-50%);
+  margin:none;
+}
+
+.highlight{
+  margin:1rem;
+  cursor:pointer;
+  opacity:0.5;
+}
+
+.highlight:hover{
+  opacity:1;
+}
+
+
+nav.navChange{
+  opacity:1;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:15;
+  height:5rem;
+}
+
+#logo{
+  margin-left:1rem;
 }
 
 #logo span{
   display:inline-block;
-  font-size:4rem;
+  transition:transform 0.5s;
+  font-size:3rem;
 }
 
-.shrink {
-  font-family:serif;
+span#associates{
+  font-size:1.5rem;
+}
+
+.navChange #associates{
+  display:none;
+}
+.shrink{
+  font-family: serif;
   font-style: italic;
-  -webkit-animation-name: shrink;
-  animation-name: shrink;
 }
 
-.shrinkUp {
-  -webkit-animation-name: shrinkUp;
-  animation-name: shrinkUp;
+.navChange .shrink{
+  transform:scale(0.75);
 }
 
-.shrinkLeft {
-  -webkit-animation-name: shrinkLeft;
-  animation-name: shrinkLeft;
-}
+.navChange .shrinkUp{
+  transform: translate(-20%, -15%) scale(0.5);
+} 
+
+.navChange .shrinkLeft{
+  transform: translate(-100%,15%) scale(0.5);
+} 
 
 #mission{
 	text-align: center;
@@ -86,8 +136,64 @@ nav{
   color:white;
   background:#007bff;
   padding:8rem;
+  position: relative;
+  z-index:-2;
+  overflow: hidden;
 }
 
+
+.dollar{
+position:absolute;
+z-index:-1;
+animation:floatDown ease-in-out infinite;
+}
+
+@keyframes floatDown{
+  0%{
+    transform:translate3d(0,0,0);
+  }
+  20%{
+    transform:translate3d(100%,100px,0);
+  }
+  40%{
+    transform:translate3d(-100%,150px,0);
+  }
+  60%{
+    transform:translate3d(100%,300px,0);
+  }
+  80%{
+    transform:translate3d(-100%,410px,0);
+  }
+  100%{
+    transform:translate3d(100%,800px,0);
+  }
+}
+.dollar:nth-child(1){
+  top:-45%;
+  right:17%;
+  animation-duration:20s
+}
+
+.dollar:nth-child(2){
+  top:-34%;
+  right:0%;
+  animation-duration:18s
+}
+.dollar:nth-child(3){
+  top:-23%;
+  right:10%;
+  animation-duration:12s
+}
+.dollar:nth-child(4){
+  top:-12%;
+  right:35%;
+  animation-duration:11s
+}
+.dollar:nth-child(5){
+  top:-20%;
+  right:20%;
+  animation-duration:8s
+}
 #footer{
   display:grid;
   grid-template-columns: 1fr 1fr;
@@ -101,80 +207,6 @@ nav{
 #footContact{
   grid-area:3/1/5/2;
 } 
-
-@-webkit-keyframes shrink {
-  from {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-
-  to {
-    -webkit-transform: scale(0.75);
-    transform: scale(0.75);
-  }
-}
-
-@keyframes shrink {
-  from {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-
-  to {
-    -webkit-transform: scale(0.75);
-    transform: scale(0.75);
-  }
-}
-
-
-
-@-webkit-keyframes shrinkUp {
-  from {
-    -webkit-transform: translate(0, 0) scale(1);
-    transform: translate(0, 0) scale(1);
-  }
-
-  to {
-    -webkit-transform: translate(-20%, -10%) scale(0.5);
-    transform: translate(-20%, -10%) scale(0.5);
-  }
-}
-
-@keyframes shrinkUp {
-  from {
-    -webkit-transform: translate(0, 0) scale(1);
-    transform: translate(0, 0) scale(1);
-  }
-
-  to {
-    -webkit-transform: translate(-20%, -10%) scale(0.5);
-    transform: translate(-20%, -10%) scale(0.5);
-  }
-}
-
-@-webkit-keyframes shrinkLeft {
-  from {
-    -webkit-transform: translate(0, 0) scale(1);
-    transform: translate(0, 0) scale(1);
-  }
-
-  to {
-    -webkit-transform: translate(-100%,25%) scale(0.5);
-    transform: translate(-100%,25%) scale(0.5);
-  }
-}
-
-@keyframes shrinkLeft {
-  from {
-    -webkit-transform: translate(0, 0) scale(1);
-    transform: translate(0, 0) scale(1);
-  }
-
-  to {
-    -webkit-transform: translate(-100%,25%) scale(0.5);
-    transform: translate(-100%,25%) scale(0.5);
-  }
-}
 
 
 @-webkit-keyframes slideInLeft {
