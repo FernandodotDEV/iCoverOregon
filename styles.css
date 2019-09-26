@@ -1,5 +1,7 @@
-*{
+
+html, body{
   font-size:16px;
+  width:100%;
 }
 
 p{
@@ -7,22 +9,26 @@ p{
   padding:0;
   font-family: serif
 }
+
 nav{
+  display:flex;
+  align-items: center;
+  z-index:20;
+  position:relative;
+  top:0;
+  left:0;
+  right:0;
   height:8rem;
   transition:height 0.5s;
   color:white;
-  display:flex;
-  position:relative;
 }
 
 nav ul{
   list-style: none;
   display:flex;
-  position:absolute;
-  right:5%;
-  top:50%;
-  transform:translateY(-50%);
-  margin:none;
+  align-items:center;
+  margin-bottom:0;
+  padding:0;
 }
 
 .highlight{
@@ -37,27 +43,24 @@ nav ul{
 
 
 nav.navChange{
-  opacity:1;
   position:fixed;
-  top:0;
-  left:0;
-  right:0;
-  z-index:20;
+  opacity:1;
   height:5rem;
 }
 
 #logo{
-  margin-left:1rem;
+  margin-left:2rem;
+  cursor:pointer;
 }
 
 #logo span{
   display:inline-block;
   transition:transform 0.5s;
-  font-size:3rem;
+  font-size:3em;
 }
 
 span#associates{
-  font-size:1.5rem;
+  font-size:1.5em;
 }
 
 .navChange #associates{
@@ -82,7 +85,7 @@ span#associates{
 
 #mission{
 	text-align: center;
-	padding:8rem 4rem;
+	padding: 8rem 4rem;
 }
 .carousel-inner, .carousel-item{
 	max-height:500px;
@@ -101,13 +104,17 @@ span#associates{
   right: 0;
   display: block;
   background-color: #343a40;
-  opacity:0.3;
+  opacity:0.2;
 }
 
 .carousel-caption{
 	bottom:50%;
 	transform:translateY(50%);
 	text-align: left
+}
+
+.carousel-caption p{
+  font-size:1.5rem;
 }
 
 #about{
@@ -125,12 +132,26 @@ span#associates{
 	height:100%;
 }
 
-.animated{
-	 -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-	animation-play-state: paused;
+.slideInLeft {
+  transform:translate(-100%,0);
+  opacity:0;
+  transition: all 1s
+}
+
+.slideInLeft.onScreen{
+  transform:translate(0,0);
+  opacity:1;
+}
+
+.slideInRight {
+  transform:translate(100%,0);
+  opacity:0;
+  transition: all 1s
+}
+
+.slideInRight.onScreen{
+  transform:translate(0,0);
+  opacity:1;
 }
 
 #startSaving{
@@ -216,71 +237,43 @@ animation:floatDown ease-in-out infinite;
 }
 #footContact{
   grid-area:3/1/5/2;
+  font-size: 1.25rem
 } 
 
 
-@-webkit-keyframes slideInLeft {
-  from {
-    -webkit-transform: translate(-100%, 0);
-    transform: translate(-100%, 0);
-    opacity:0;
-  }
-
-  to {
-    -webkit-transform: translate(0, 0);
-    transform: translate(0, 0);
-    opacity:1;
+@media screen and (max-width:800px){
+  html, body{
+    font-size:12px;
   }
 }
 
-@keyframes slideInLeft {
-  from {
-    -webkit-transform: translate(-100%, 0);
-    transform: translate(-100%, 0);
-    opacity:0;
+@media screen and (max-width:600px){
+  #about{
+    grid-gap:0;
   }
 
-  to {
-    -webkit-transform: translate(0, 0);
-    transform: translate(0, 0);
-    opacity:1;
-  }
-}
-
-.slideInLeft {
-  -webkit-animation-name: slideInLeft;
-  animation-name: slideInLeft;
-}
-
-@-webkit-keyframes slideInRight {
-  from {
-    -webkit-transform: translate(100%, 0);
-    transform: translate(100%, 0);
-    opacity:0;
+  #logo{
+    font-size:8px;
   }
 
-  to {
-    -webkit-transform: translate(0, 0);
-    transform: translate(0, 0);
-    opacity:1;
+  #footer{
+    padding:2rem;
   }
 }
 
-@keyframes slideInRight {
-  from {
-    -webkit-transform: translate(100%, 0);
-    transform: translate(100%, 0);
-    opacity:0;
+@media screen and (max-width:500px){
+  #about{
+    grid-template-columns:50vw 50vw;
   }
-
-  to {
-    -webkit-transform: translate(0, 0);
-    transform: translate(0, 0);
-    opacity:1;
+  #about img{
+    height:auto;
+    width:100%;
   }
-}
-
-.slideInRight {
-  -webkit-animation-name: slideInRight;
-  animation-name: slideInRight;
+  #startSaving{
+    padding:4rem;
+  }
+  #footer{
+    padding:0;
+    grid-template-rows:repeat(4,6rem);
+  }
 }
